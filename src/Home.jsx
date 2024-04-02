@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     async function getData() {
       const result = await axios.get(
-        "https://react-todo-server-pukyong-national-university.koyeb.app/8000/get"
+        "https://react-todo-server-pukyong-national-university.koyeb.app/get"
       );
       setTodos(result.data);
       inputRef.current.focus();
@@ -21,11 +21,11 @@ export default function Home() {
 
   const handleAdd = async () => {
     await axios.post(
-      "https://react-todo-server-pukyong-national-university.koyeb.app/8000/add",
+      "https://react-todo-server-pukyong-national-university.koyeb.app/add",
       { task: task }
     );
     const result = await axios.get(
-      "https://react-todo-server-pukyong-national-university.koyeb.app/8000/get"
+      "https://react-todo-server-pukyong-national-university.koyeb.app/get"
     );
     setTodos(result.data);
     inputRef.current.value = "";
@@ -34,22 +34,22 @@ export default function Home() {
 
   const handleEdit = async (id) => {
     await axios.put(
-      "https://react-todo-server-pukyong-national-university.koyeb.app/8000/update/" +
+      "https://react-todo-server-pukyong-national-university.koyeb.app/update/" +
         id
     );
     const result = await axios.get(
-      "https://react-todo-server-pukyong-national-university.koyeb.app/8000/get"
+      "https://react-todo-server-pukyong-national-university.koyeb.app/get"
     );
     setTodos(result.data);
   };
 
   const handleDelete = async (id) => {
     await axios.delete(
-      "https://react-todo-server-pukyong-national-university.koyeb.app/8000/delete/" +
+      "https://react-todo-server-pukyong-national-university.koyeb.app/delete/" +
         id
     );
     const result = await axios.get(
-      "https://react-todo-server-pukyong-national-university.koyeb.app/8000/get"
+      "https://react-todo-server-pukyong-national-university.koyeb.app/get"
     );
     setTodos(result.data);
   };
